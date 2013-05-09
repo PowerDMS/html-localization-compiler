@@ -1,0 +1,26 @@
+# Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
+bin
+obj
+[Pp]ackages
+
+# Localization Compiler Files
+Resources
+
+#Code analysis files
+_Resharper.*
+StyleCop.cache
+
+#Editor/IDE files
+*.swp
+*.user
+*.docstates
+*.suo
+.idea
+
+#OS files
+*.DS_Store
+[Tt]humbs.db
+
+#NCrunch
+*_NCrunch_*
+*ncrunchsolution.user
