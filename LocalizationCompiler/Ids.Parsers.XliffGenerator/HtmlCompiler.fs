@@ -77,7 +77,7 @@ module XmlToLocalizationMatch =
                                               attributeTarget = firstNonBlank [x.attributeTarget; x.sourceText] })
                 |> Seq.map (fun x ->
                     { x with target = xmlReplacerLastTag.Replace(xmlReplacer.Replace(x.target, replacer), replacer);
-                            attributeTarget = "\"'" + xmlReplacerLastTag.Replace(xmlReplacer.Replace(x.attributeTarget, attributeReplacer), attributeReplacerLastTag) + "\"" })
+                            attributeTarget = "\"'" + xmlReplacerLastTag.Replace(xmlReplacer.Replace(x.attributeTarget, attributeReplacer), attributeReplacerLastTag) + "'\"" })
         (lang, nodes)
 
 module HtmlCompiler =
@@ -98,8 +98,8 @@ module HtmlCompiler =
     let generateNewHtmlFile contents (matches : LocalizationMatch seq) : string =
         match run LocalizationTagParser.getChunks (Text.NormalizeNewlines contents) with
             | Success (x, _, endPosition) -> 
-                let rest = Text.NormalizeNewlines(contents.Substring(int32(endPosition.Index)))
+                let rest = Text.NormalizeNewlines(contents).Substring(int32(endPosition.Index))
                 match x with
                     | [] -> rest
                     | x -> (x |> Seq.map (fun (a, b) -> a + (getTranslation matches b)) |> Seq.reduce (+)) + rest
-            | Failure (reasons,_,_) -> reasons
+            | Failure (reasons, state, _) -> reasons
