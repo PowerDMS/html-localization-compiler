@@ -6,7 +6,9 @@ You must identify localizable strings in your HTML files with the following synt
 
 * Note: If you don't want to include a description, you must still include the pipe (e.g. `[[String in native language|]]`).
 
-* Additional Note: If you are using Angular.js [http://angularjs.org/] you can still use `[[Strings containing {{Angular Expressions}}!|Isn't that cool?]]`
+* Additional Note: If you are using Angular.js [http://angularjs.org/] you can still use `[[Strings containing [[Angular Interpolatino Expressions]]!|Isn't that cool?]]`
+	* Specifics, if it is in a regular single quoted attribute or just on the page, for example: `<span title="[[hello [[name]]|greeting]]">[[hello [[name]]|greeting]]</span>` it will compile using {{}} to `<span title="hello {{name}}">hello {{name}}</span>`
+	* However if it is an angular directive data bound attribute, as interpreted by attribute="'string'", for example: `<span directive="'[[hello [[name]]|greeting]]'">[[hello [[name]]|greeting]]</span>` it will compile this to `<span title="'hello ' + name">hello {{name}}</span>`
 
 Building
 --------
@@ -15,6 +17,8 @@ We are intending to provide a binary download option, but for now you will need 
 During Development
 --------
 During development time, you can optionally use the parseLocalizationTags javascript function (included in parse-localization-tags.js) to strip out the square brackets and translator notes so that the ui will look just like it will during release in the native language.
+
+However, you will probably be much happier coding against the same html that your users will recieve so having the compilation be a part of a grunt watch task is a great idea.
 
 Generating xliff
 --------
