@@ -31,7 +31,7 @@ module XmlToLocalizationMatch =
 
     let manager = new XmlNamespaceManager(xliffDoc.NameTable)
 
-    let xmlReplacer = new Regex(@"<x id=[""'](.*?)[""'].*?/>(.)", RegexOptions.IgnoreCase);
+    let xmlReplacer = new Regex(@"<x id=[""'](.*?)[""'].*?/>", RegexOptions.IgnoreCase);
     let xmlReplacerLastTag = new Regex(@"<x id=[""'](.*?)[""'].*?/>$", RegexOptions.IgnoreCase);
     let replacer (m : Match) = String.Format("{{{{{0}}}}}", m.Groups.Item(1))
     let attributeReplacer (m : Match) = String.Format("' + {0} + '", m.Groups.Item(1))
