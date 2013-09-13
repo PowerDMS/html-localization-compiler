@@ -6,7 +6,7 @@ You must identify localizable strings in your HTML files with the following synt
 
 * Note: If you don't want to include a description, you must still include the pipe (e.g. `[[String in native language|]]`).
 
-* Additional Note: If you are using Angular.js [http://angularjs.org/] you can still use `[[Strings containing [[Angular Interpolatino Expressions]]!|Isn't that cool?]]`
+* Additional Note: If you are using Angular.js [http://angularjs.org/] you can still use `[[Strings containing [[Angular Interpolation Expressions]]!|Isn't that cool?]]`
 	* Specifics, if it is in a regular single quoted attribute or just on the page, for example: `<span title="[[hello [[name]]|greeting]]">[[hello [[name]]|greeting]]</span>` it will compile using {{}} to `<span title="hello {{name}}">hello {{name}}</span>`
 	* However if it is an angular directive data bound attribute, as interpreted by attribute="'string'", for example: `<span directive="'[[hello [[name]]|greeting]]'">[[hello [[name]]|greeting]]</span>` it will compile this to `<span title="'hello ' + name">hello {{name}}</span>`
 
