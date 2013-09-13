@@ -24,6 +24,8 @@ module XmlToLocalizationMatch =
     open System.Linq
     open System.Xml
 
+    open System.Web;
+
     open System.Text.RegularExpressions
 
     let xliffDoc = new XmlDocument()
@@ -73,7 +75,7 @@ module XmlToLocalizationMatch =
                                      target = x.SelectNodes("x:target", manager).Item(0).InnerXml;
                                      attributeTarget = x.SelectNodes("x:target", manager).Item(0).InnerXml;
                                      translatorNote = x.SelectNodes("x:note", manager).Item(0).InnerXml })
-                |> Seq.map (fun x -> { x with target = firstNonBlank [x.target; x.sourceText];
+                |> Seq.map (fun x -> { x with target = firstNonBlank [x.target; x.sourceText] |> HttpUtility.HtmlDecode;
                                               attributeTarget = firstNonBlank [x.attributeTarget; x.sourceText] })
                 |> Seq.map (fun x ->
                     { x with target = xmlReplacerLastTag.Replace(xmlReplacer.Replace(x.target, replacer), replacer);

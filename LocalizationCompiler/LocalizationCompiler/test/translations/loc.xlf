@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file original="index.html" datatype="x-blah-msg-bundle" source-language="en" target-language="en-US">
+    <body>
+      <trans-unit id="A9-B9-C6-74-00-32-6C-79-D0-5A-19-90-64-0E-FB-A6-48-7B-26-AF-9E-71-B3-AB-7E-E3-D7-34-04-2A-2C-15" datatype="html">
+        <source>This is a test</source>
+        <target />
+        <note>Testing the compiler</note>
+      </trans-unit>
+      <trans-unit id="79-96-17-DB-4D-6E-B4-8C-BF-34-37-BC-01-24-31-08-69-BD-57-3A-15-7D-AC-CD-18-F7-2A-C3-43-0F-51-6A" datatype="html">
+        <source>This is an <x id="Interpolation" /> Test</source>
+        <target />
+        <note>Interpolation test</note>
+      </trans-unit>
+      <trans-unit id="88-E2-EF-E2-F7-B2-E7-16-31-6F-CC-EE-9C-66-5F-E1-79-B9-80-39-74-34-D6-A0-01-EA-07-EB-D5-9A-EF-46" datatype="html">
+        <source>Test alt text</source>
+        <target />
+        <note>attribute test</note>
+      </trans-unit>
+      <trans-unit id="2E-40-F2-7F-D9-76-5A-17-FA-D3-2B-B4-0B-AC-E5-3D-94-D5-5B-A9-A4-56-F1-C0-B4-E7-57-EF-67-90-23-D8" datatype="html">
+        <source>Test alt text <x id="with" /> interpolation</source>
+        <target />
+        <note>attribute interpolation test</note>
+      </trans-unit>
+      <trans-unit id="08-02-F3-C6-CE-7B-D4-94-B1-75-A4-A1-53-F5-D4-9B-C9-B4-E5-BF-13-4D-FB-F5-58-1B-E5-EE-E1-DE-03-4E" datatype="html">
+        <source>Finally &lt;strong&gt;We test&lt;/strong&gt; with &lt;em&gt;some html&lt;/em&gt;</source>
+        <target />
+        <note>tag test</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
