@@ -22,6 +22,11 @@
         <target />
         <note>attribute interpolation test</note>
       </trans-unit>
+      <trans-unit id="CRrzrq5Rmcg0yEkxaV1XUpRnTjSnRApdgjn1q7kXhm4=" datatype="html">
+        <source>What <x id="on" /> earth</source>
+        <target />
+        <note>Oh Right</note>
+      </trans-unit>
       <trans-unit id="CALzxs571JSxdaShU/XUm8m05b8TTfv1WBvl7uHeA04=" datatype="html">
         <source>Finally &lt;strong&gt;We test&lt;/strong&gt; with &lt;em&gt;some html&lt;/em&gt;</source>
         <target />
