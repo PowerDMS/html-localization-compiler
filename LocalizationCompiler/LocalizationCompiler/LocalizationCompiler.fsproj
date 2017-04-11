@@ -28,7 +28,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <DocumentationFile>bin\Debug\LocalizationCompiler.XML</DocumentationFile>
     <StartArguments>translations\ website\ output\</StartArguments>
-    <StartWorkingDirectory>C:\git\html-localization-compiler\LocalizationCompiler\LocalizationCompiler\test</StartWorkingDirectory>
+    <StartWorkingDirectory>$(SolutionDir)\LocalizationCompiler\test</StartWorkingDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
