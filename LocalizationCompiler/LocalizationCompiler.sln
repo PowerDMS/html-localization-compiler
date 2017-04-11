@@ -1,6 +1,15 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{34E16039-9DC4-4FBC-8331-7E1819E030D8}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Ids.Localization.Parsers", "Ids.Localization.Parsers\Ids.Localization.Parsers.fsproj", "{E35E44E1-E051-41DA-BCDC-69CB5C8FDF25}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Ids.Localization.Parsers.Public", "Ids.Localization.Parsers.Public\Ids.Localization.Parsers.Public.fsproj", "{357E9998-74F6-48FD-8A08-6929114791BE}"
@@ -8,13 +17,6 @@ EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "LocalizationCompiler", "LocalizationCompiler\LocalizationCompiler.fsproj", "{C74568BA-270A-4D22-8603-9A5321E50F1A}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Ids.Parsers.XliffGenerator", "Ids.Parsers.XliffGenerator\Ids.Parsers.XliffGenerator.fsproj", "{26924FE8-240B-4E81-B375-AB90A5BCB320}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{34E16039-9DC4-4FBC-8331-7E1819E030D8}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
