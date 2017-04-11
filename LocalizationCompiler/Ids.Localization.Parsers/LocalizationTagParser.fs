@@ -25,7 +25,7 @@ module LocalizationTagParser =
     
     let private parseSource = many1Till (parseVariablePart <|> parseTextPart) (spaces >>? (pchar '|' .>> spaces))
 
-    let private buildTag isInAttribute source notes = { source = source; translatorNote = notes; isInAttribute = isInAttribute }
+    let private buildTag isInAttribute source notes = { LocalizationTag.source = source; translatorNote = notes; isInAttribute = isInAttribute }
     
     let private closeTag str = (manyCharsTill anyChar (spaces >>? pstring str))
 

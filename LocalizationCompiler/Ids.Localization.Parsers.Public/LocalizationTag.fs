@@ -17,3 +17,10 @@ type LocalizationTag = {
     translatorNote : string;
     isInAttribute : bool;
 }
+
+type IdLocalizationTag = {
+    id : string;
+    source : LocalizationSourcePart seq;
+    translatorNote : string;
+    isInAttribute : bool;
+}

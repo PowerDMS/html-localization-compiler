@@ -15,7 +15,7 @@ module Program =
 
     open Ids.Generators
     open Ids.Localization.Parsers
-    open Ids.Localization.Parsers.XliffGenerator
+    open Ids.Localization.Parsers.XliffGenerator.XliffGenerator
 
     let rec generateXlfFromFiles (d : DirectoryInfo) (x : XliffGenerator) =
         printfn "%s" d.FullName
@@ -65,7 +65,7 @@ module Program =
             printfn "Generating xliff"
             printfn "   LocalizationCompiler.exe -g <website dir> <output file name>\n"
             printfn "Compiling the HTML"
-            printfn "   LocalizationCompiler.exe <dir containing xliffs> <website dir> <output dir>"
+            printfn "   LocalizationCompiler.exe <dir containing xliffs> <website dir> <output dir>\n"
 
         else if listArgs.Head = "-g" then
             let (dir::outputName::_) = List.tail listArgs

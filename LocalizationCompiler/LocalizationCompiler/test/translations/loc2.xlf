@@ -1,30 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file original="index.html" datatype="x-blah-msg-bundle" source-language="en" target-language="en-US">
+  <file original="index.html" datatype="x-blah-msg-bundle" source-language="en" target-language="zh-TW">
     <body>
-      <trans-unit id="VjzYNgEWUTVBWYGWwkfFqExmWbfd6Vd7RLGCkVN+Wgk=" datatype="html">
-        <source>This is a test of the new changes</source>
-        <target />
+      <trans-unit id="qbnGdAAybHnQWhmQZA77pkh7Jq+ecbOrfuPXNAQqLBU=" datatype="html">
+        <source>This is a test</source>
+        <target>what what</target>
         <note>Testing the compiler</note>
       </trans-unit>
       <trans-unit id="eZYX201utIy/NDe8ASQxCGm9VzoVfazNGPcqw0MPUWo=" datatype="html">
         <source>This is an <x id="Interpolation" /> Test</source>
-        <target />
+        <target>what what <x id="Interpolation" /> what</target>
         <note>Interpolation test</note>
       </trans-unit>
       <trans-unit id="iOLv4vey5xYxb8zunGZf4Xm5gDl0NNagAeoH69Wa70Y=" datatype="html">
         <source>Test alt text</source>
-        <target />
+        <target>What alt what</target>
         <note>attribute test</note>
-      </trans-unit>
-      <trans-unit id="LkDyf9l2Whf60yu0C6zlPZTVW6mkVvHAtOdX72eQI9g=" datatype="html">
-        <source>Test alt text <x id="with" /> interpolation</source>
-        <target />
-        <note>attribute interpolation test</note>
       </trans-unit>
       <trans-unit id="CALzxs571JSxdaShU/XUm8m05b8TTfv1WBvl7uHeA04=" datatype="html">
         <source>Finally &lt;strong&gt;We test&lt;/strong&gt; with &lt;em&gt;some html&lt;/em&gt;</source>
-        <target />
+        <target>What &lt;strong&gt;what what&lt;/strong&gt; what &lt;em&gt;what what&lt;/em&gt;</target>
         <note>tag test</note>
       </trans-unit>
     </body>
