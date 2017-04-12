@@ -3,6 +3,8 @@ bin
 obj
 [Pp]ackages
 
+test2/
+
 # Localization Compiler Files
 Resources
 

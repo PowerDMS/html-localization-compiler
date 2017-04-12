@@ -32,6 +32,12 @@
         <target />
         <note>tag test</note>
       </trans-unit>
+      <trans-unit id="RvEeP8u+X4acRkzHZO5ZpqaQVlEdg0MBmKjV2+PIYVk=" datatype="html">
+        <source>
+          <x id="aVar" /> Var</source>
+        <target />
+        <note>Some Var Text</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>

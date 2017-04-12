@@ -38,8 +38,8 @@ module Generators =
         let private xmlToLM(node : XmlNode) =
             node.ChildNodes.Cast<XmlNode>()
             |> Seq.map(fun n -> match n.NodeType with
-                                    | XmlNodeType.Text -> Text n.Value
-                                    | _ -> Variable (n.Attributes.GetNamedItem("id").Value))
+                                    | XmlNodeType.Element -> Variable (n.Attributes.GetNamedItem("id").Value)
+                                    | _ -> Text n.Value)
 
         let generate (translatedXliff : string) = 
             manager.AddNamespace("x", "urn:oasis:names:tc:xliff:document:1.2")
@@ -109,5 +109,5 @@ module Generators =
                     let rest = Text.NormalizeNewlines(contents).Substring(int32(endPosition.Index))
                     match x with
                         | [] -> rest
-                        | x -> (x |> Seq.map(fun (a, b) -> (a, generateIdTag(b))) |> Seq.map (fun (a, b) -> a + (getTranslation matches b)) |> Seq.reduce (+)) + rest
+                        | x -> (x |> Seq.map(fun (leader, tag) -> (leader, generateIdTag(tag))) |> Seq.map (fun (leader, tag) -> leader + (getTranslation matches tag)) |> Seq.reduce (+)) + rest
                 | Failure (reasons, state, _) -> reasons
