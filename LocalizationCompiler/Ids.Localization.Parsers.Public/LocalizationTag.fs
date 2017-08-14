@@ -16,6 +16,7 @@ type LocalizationTag = {
     source : LocalizationSourcePart seq;
     translatorNote : string;
     isInAttribute : bool;
+    isInJavascriptString: bool;
 }
 
 type IdLocalizationTag = {
@@ -23,4 +24,5 @@ type IdLocalizationTag = {
     source : LocalizationSourcePart seq;
     translatorNote : string;
     isInAttribute : bool;
+    isInJavascriptString: bool;
 }

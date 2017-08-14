@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="VjzYNgEWUTVBWYGWwkfFqExmWbfd6Vd7RLGCkVN+Wgk=" datatype="html">
         <source>This is a test of the new changes</source>
-        <target>----TRANSLATE1----</target>
+        <target>----TRANSLATE1---- with quotes: "double" 'single'</target>
         <note>Testing the compiler</note>
       </trans-unit>
       <trans-unit id="eZYX201utIy/NDe8ASQxCGm9VzoVfazNGPcqw0MPUWo=" datatype="html">
@@ -17,10 +17,10 @@
         <target>----TRANSLATE4----</target>
         <note>attribute interpolation test</note>
       </trans-unit>
-      <trans-unit id="CRrzrq5Rmcg0yEkxaV1XUpRnTjSnRApdgjn1q7kXhm4=" datatype="html">
-        <source>What <x id="on" /> earth</source>
-        <target>----TRANSLATE5----</target>
-        <note>Oh Right</note>
+      <trans-unit id="gs86v6FDUAI5B716ux1FKqyn5FSbpq4WqMHLSEqYub4=" datatype="html">
+        <source>Test alt text</source>
+        <target>Test alt "text"</target>
+        <note>attribute test - quotes in translation</note>
       </trans-unit>
     </body>
   </file>

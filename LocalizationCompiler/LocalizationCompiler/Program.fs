@@ -17,11 +17,13 @@ module Program =
     open Ids.Localization.Parsers
     open Ids.Localization.Parsers.XliffGenerator.XliffGenerator
 
+    let supportedFileTypes = new System.Text.RegularExpressions.Regex("htm|html|js")
+    let jsFileType = "js"
+
     let rec generateXlfFromFiles (d : DirectoryInfo) (x : XliffGenerator) =
         printfn "%s" d.FullName
-        let r = new System.Text.RegularExpressions.Regex("htm|html")
         d.EnumerateFiles()
-            |> Seq.filter(fun f -> r.IsMatch(f.Extension))
+            |> Seq.filter(fun f -> supportedFileTypes.IsMatch(f.Extension))
             |> Seq.iter(fun f -> 
                 printfn "\t%s" f.Name
                 x.Generate f.Name (LocalizationTagParser.parse (File.ReadAllText(f.FullName))) |> ignore)
@@ -39,12 +41,11 @@ module Program =
 
     let rec generateApplicationFromXlf (tags : LocalizationMatch seq) (applicationDirectory : DirectoryInfo) (outputDirectory : DirectoryInfo) =
         printfn "%s" applicationDirectory.FullName
-        let r = new System.Text.RegularExpressions.Regex("htm|html")
 
         applicationDirectory.EnumerateFiles()
             |> Seq.iter(fun f ->
                 let outputName = Path.Combine(outputDirectory.FullName, f.Name)
-                if f.Extension |> r.IsMatch then
+                if f.Extension |> supportedFileTypes.IsMatch then
                     printMatchedFile f
 
                     let newContents = HtmlCompiler.generateNewHtmlFile (File.ReadAllText f.FullName) tags

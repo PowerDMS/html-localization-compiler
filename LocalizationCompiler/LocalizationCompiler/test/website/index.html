@@ -1,18 +1,52 @@
 <html>
 
     <body>
+        Expected output is on top, actual result is on bottom:
+
+        <p>Hey, everyone. This is a test of the new changes</p>
         <p>Hey, everyone. [[This is a test of the new changes|Testing the compiler]]</p>
-        <p>[[This is an [[Interpolation]] Test|Interpolation test]]</p>
+
+        <p>This is an {{Interpolation}} Test</p>
+        <p>[[This is an [[{{Interpolation}}]] Test|Interpolation test]]</p>
+
+        <p>And <a href="#" alt="Test alt text">this</a> is an attribute test.</p>
         <p>And <a href="#" alt="[[Test alt text|attribute test]]">this</a> is an attribute test.</p>
-        <p>And <a href="#" alt="[[Test alt text [[with]] interpolation|attribute interpolation test]]">this</a>
+
+        <p>And <a href="#" alt="Test alt &quot;text&quot;">this</a> is an attribute test2.</p>
+        <p>And <a href="#" alt="[[Test alt text|attribute test - quotes in translation]]">this</a> is an attribute test2.</p>
+        
+        <p>And <a href="#" alt="Test alt text {{with}} interpolation">this</a>
+            is an attribute test with interpolation.
+        </p>
+        <p>And <a href="#" alt="[[Test alt text [[{{with}}]] interpolation|attribute interpolation test]]">this</a>
             is an attribute test with interpolation.
         </p>
 
-        <p>Is this: <span style="'[[What [[on]] earth|Oh Right]]'"></span> I had built for?</p>
+        <my-directive my-attr="'I have ' + controller.numDocs + ' documents'"></my-directive>
+        <my-directive my-attr="'[[I have [[controller.numDocs]] documents | string concat]]'"></my-directive>
 
+        <my-directive my-attr="'Cool doc: ' + controller.docName + 'cool'"></my-directive>
+        <my-directive my-attr="'[[Cool doc: [[controller.docName + 'cool']] | cool doc concat]]'"></my-directive>
+
+        <p>Finally <strong>We test</strong> with <em>some html</em></p>
         <p>[[Finally <strong>We test</strong> with <em>some html</em>|tag test]]</p>
 
-        <p>Is this causing an error? [[[[aVar]] Var | Some Var Text]]</p>
+        <p>Is this causing an error? {{aVar}} Var</p>
+        <p>Is this causing an error? [[[[{{aVar}}]] Var | Some Var Text]]</p>
+
+        <!-- Escaping! If translators put single or double quotes in the translations, they can break stuff
+            if the translation is in a regular html attribute or in an angular string inside an attribute -->
+        <p>This translation's quotes should not be escaped: "double quotes"</p>
+        <p>[[This translation's quotes should not be escaped: "double quotes"| quotes no escape]]</p>
+
+        <p attr="This attributes's double quotes should be escaped: &quot;double quotes&quot;"></p>
+        <p attr="[[This attributes's double quotes should be escaped: "double quotes"| double quotes escape]]"></p>
+
+        <p attr="'These single quotes should be escaped: &#39;single&#39;'"></p>
+        <p attr="'[[These single quotes should be escaped: 'single'| single quotes escape]]'"></p>
+
+        <p attr="'Translators could add &#39;single&#39; and &quot;double&quot; quotes'"></p>
+        <p attr="'[[Translators could add 'single' and "double" quotes| quotes in angular string escape]]'"></p>
     </body>
 
 </html>
