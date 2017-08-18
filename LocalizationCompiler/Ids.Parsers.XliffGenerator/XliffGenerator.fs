@@ -28,7 +28,7 @@ module XliffGenerator =
             id = id;
             source = localizationTag.source;
             translatorNote = localizationTag.translatorNote;
-            isInAttribute = localizationTag.isInAttribute;
+            isInHtmlAttribute = localizationTag.isInHtmlAttribute;
         }
 
     type XliffGenerator() = 

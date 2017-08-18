@@ -25,7 +25,7 @@ module LocalizationTagParser =
     
     let private parseSource = many1Till (parseVariablePart <|> parseTextPart) (spaces >>? (pchar '|' .>> spaces))
 
-    let private buildTag isInAttribute source notes = { LocalizationTag.source = source; translatorNote = notes; isInAttribute = isInAttribute }
+    let private buildTag jsString source notes = { LocalizationTag.source = source; translatorNote = notes; isInJsString = jsString }
     
     let private closeTag str = (manyCharsTill anyChar (spaces >>? pstring str))
 
@@ -33,9 +33,9 @@ module LocalizationTagParser =
 
     let private parseTag = skipString "[[" >>. spaces >>. pipeSourceToFn "]]" (buildTag false)
 
-    let private parseTagInAttribute = skipString "\"'[[" >>. spaces >>. pipeSourceToFn "]]'\"" (buildTag true)
+    let private parseTagInJsString = skipString "'[[" >>. spaces >>. pipeSourceToFn "]]'" (buildTag true)
     
-    let getChunks = many (attempt (manyCharsTill anyChar (lookAhead <| (skipString "\"'[[" <|> skipString "[[")) .>>. (attempt parseTag <|> parseTagInAttribute)))
+    let getChunks fileContents isHtmlFile = fileContents |> many (attempt (manyCharsTill anyChar (lookAhead <| (skipString "\'[[" <|> skipString "[[")) .>>. (attempt parseTag <|> parseTagInJsString)))
 
     let private parseCruft = getChunks |>> (fun x -> Seq.map snd x)
     

@@ -15,14 +15,14 @@ type LocalizationSourcePart =
 type LocalizationTag = {
     source : LocalizationSourcePart seq;
     translatorNote : string;
-    isInAttribute : bool;
-    isInJavascriptString: bool;
+    isInHtmlAttribute: bool;
+    isInJsString: bool;
 }
 
 type IdLocalizationTag = {
     id : string;
     source : LocalizationSourcePart seq;
     translatorNote : string;
-    isInAttribute : bool;
-    isInJavascriptString: bool;
+    isInHtmlAttribute: bool;
+    isInJsString: bool;
 }

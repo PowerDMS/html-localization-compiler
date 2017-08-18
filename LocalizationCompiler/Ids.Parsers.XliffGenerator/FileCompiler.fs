@@ -69,7 +69,7 @@ module Generators =
                                   })
             (lang, nodes)
 
-    module HtmlCompiler =
+    module FileCompiler =
         open System
         open FParsec
         open Ids.Localization.Parsers
@@ -96,15 +96,15 @@ module Generators =
         let private getTranslation (matches : LocalizationMatch seq) (tag : IdLocalizationTag) : string = 
             let optionalMatch = matches |> Seq.tryFind (fun x -> tag.id = x.id)
             match optionalMatch with
-                | Some m -> if tag.isInAttribute
+                | Some m -> if tag.isInHtmlAttribute
                                 then lspToAttr(firstNonEmpty [m.target; m.source])
                                 else lspToTarg(firstNonEmpty [m.target; m.source])
-                | None -> if tag.isInAttribute
+                | None -> if tag.isInHtmlAttribute
                             then lspToAttr(tag.source)
                             else lspToTarg(tag.source)
 
-        let generateNewHtmlFile contents (matches : LocalizationMatch seq) : string =
-            match run LocalizationTagParser.getChunks (Text.NormalizeNewlines contents) with
+        let generateNewFile contents (matches : LocalizationMatch seq, isHtml : bool) : string =
+            match run LocalizationTagParser.getChunks (Text.NormalizeNewlines contents, isHtml) with
                 | Success (x, _, endPosition) -> 
                     let rest = Text.NormalizeNewlines(contents).Substring(int32(endPosition.Index))
                     match x with
