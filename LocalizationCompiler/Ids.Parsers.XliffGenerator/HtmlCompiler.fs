@@ -77,7 +77,7 @@ module Generators =
         let private deTag (t : LocalizationSourcePart) : string = 
             match t with
                 | Text s -> s
-                | Variable s -> "{{" + s + "}}"
+                | Variable s -> s
 
         let private deTagAttr (t : LocalizationSourcePart) : string = 
             match t with
