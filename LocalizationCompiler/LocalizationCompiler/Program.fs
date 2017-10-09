@@ -16,8 +16,9 @@ module Program =
     open Ids.Generators
     open Ids.Localization.Parsers
     open Ids.Localization.Parsers.XliffGenerator.XliffGenerator
+    open System.Text.RegularExpressions
 
-    let supportedFileTypes = new System.Text.RegularExpressions.Regex("htm|html|js")
+    let supportedFileTypes = new Regex("htm|html|js")
 
     let rec generateXlfFromFiles (d : DirectoryInfo) (x : XliffGenerator) =
         printfn "%s" d.FullName
