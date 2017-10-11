@@ -109,5 +109,11 @@ module Generators =
                     let rest = Text.NormalizeNewlines(contents).Substring(int32(endPosition.Index))
                     match x with
                         | [] -> rest
-                        | x -> (x |> Seq.map(fun (leader, tag) -> (leader, generateIdTag(tag))) |> Seq.map (fun (leader, tag) -> leader + (getTranslation matches tag)) |> Seq.reduce (+)) + rest
+                        | x -> (x 
+                                |> Seq.map(fun (leader, tag) -> (leader, generateIdTag(tag)))
+                                // DS: The Trim() is there because the xml generator puts a variable on a new line
+                                //    if the string starts with a variable, which messes up js formatting because
+                                //    js strings can only be on one line.
+                                |> Seq.map (fun (leader, tag) -> leader + (getTranslation matches tag).Trim())
+                                |> Seq.reduce (+)) + rest
                 | Failure (reasons, state, _) -> reasons
