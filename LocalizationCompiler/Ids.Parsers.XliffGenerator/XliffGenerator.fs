@@ -93,7 +93,7 @@ module XliffGenerator =
 
         member x.Generate originalFileName (localizationTags : LocalizationTag seq) =
             fileNodeOriginalAttribute.Value <- originalFileName
-            targetLanguageAttribute.Value <- "en-US"
+            targetLanguageAttribute.Value <- "en"
 
             localizationTags |> Seq.map generateIdTag |> Seq.iter tagToXmlElement
 
